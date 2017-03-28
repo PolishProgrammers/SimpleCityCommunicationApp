@@ -31,5 +31,5 @@ before_script:
 - npm install
 
 script:
-  - cd city-communication-app
+  - cd cityCommunicationApp
   - ng build --prod
