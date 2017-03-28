@@ -26,9 +26,10 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
 
 before_script:
-- npm install -g angular-cli
+- npm install @angular/cli
 - npm install -g karma
 - npm install
 
 script:
+  - cd city-communication-app
   - ng build --prod
