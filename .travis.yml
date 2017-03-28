@@ -1,35 +1,36 @@
 sudo: required
 dist: trusty
-
 language: node_js
 node_js:
-  - '7.7.4'
-
+- 7.7.4
 branches:
   only:
-    - master
-
+  - master
 addons:
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
-
 before_install:
-  - sudo apt-get update -q
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sudo apt-get install -y libappindicator1 fonts-liberation
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
-
+- sudo apt-get update -q
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sudo apt-get install -y libappindicator1 fonts-liberation
+- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+- sudo dpkg -i google-chrome*.deb
 before_script:
 - npm install @angular/cli
 - npm install -g karma
 - npm install
-
 script:
-  - ls
-  - ng build --prod
+- ls
+- ng build --prod
+deploy:
+  provider: heroku
+  api_key:
+    secure: TxGP9ccg7cthbRdMrZZi2cKZueL/oOtHey3TjY4BTdJj6R+6lgW9YESH+BA5al2BMKLwbP5iF6877Huqh3XzAriIdaOPDUzOZ1eBXSRMZ2QskNm0wG6JImJ/hsBZ2dvMCSTnT0wfWJDSbDIAgi8Lm7lpSoxe8lKPSv9/SSCfN4VCgowZVQaQY3LDJ2gBDmAifXVhcDIHUubMlKq1p36sKBkhUXiBXkL9BUOoWyY9WlC8AU6yUPPATWDt3YtjG48fZTEa8CUDnwAJYKH1s25B2B1r5mPq/752J0Fmlxt+TbeSoILNlyB3bzT3MqqFNQHzocbRcH/AMRlaReTq+i5tro86CGxfXB7A+lrbzJ/Kg0nuDg0TKosV/9KMAyEIip5ExLPbJfsjBGZuNb1fh8omIhIhlTzSvLHoYWp+GM2THG8CWOwsAeXipWR+Lv6MhnziIMvsTaiUV4oYDbzsUqgxPWZSSGMRCIpPjkFhdONnGEVB35VI5Fx44NX6PGeCOorccZXuvHCQaY3QsM7Xvyp6vBdHXF7lLy42HTSE/mSm8IFpa2beD2XV16z18b6eJrtnhUL7KKBKMsoWdmdRNAJwe7IEcg5oHcBFsVAEQFpV0fz38ymOL2yxzveMDV4M1Qk/AqzpxRf2zmVap2INUjARMaAvp3xjhtTjt6YnZmpAUBs=
+  app: SimpleCityCommunicationApp
+  on:
+    repo: PolishProgrammers/SimpleCityCommunicationApp
