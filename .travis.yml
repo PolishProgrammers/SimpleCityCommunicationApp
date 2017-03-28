@@ -12,7 +12,6 @@ addons:
     - google-chrome
     packages:
     - google-chrome-stable
-    - google-chrome-beta
 
 before_install:
   - export CHROME_BIN=chromium-browser
