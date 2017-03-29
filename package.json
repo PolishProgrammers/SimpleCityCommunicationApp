@@ -6,8 +6,8 @@
     "node": "7.7.4"
   },
   "scripts": {
-    "heroku-preinstall": "npm install -g http-server",
-    "heroku-postinstall": "ng build -prod",
+    "preinstall": "npm install -g http-server",
+    "postinstall": "ng build -prod",
     "ng": "ng",
     "start": "http-server dist/",
     "build": "ng build",
