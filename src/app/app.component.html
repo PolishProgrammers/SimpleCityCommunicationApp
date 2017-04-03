@@ -6,7 +6,8 @@
         <div class="col col-md-8">
           <div class="form-group">
             <label for="lineName">Podaj nazwę linii</label>
-            <input type="text" class="form-control" id="lineName" placeholder="Nazwa linii">
+            <input type="text" [formControl]="term" class="form-control" id="lineName" placeholder="Nazwa linii">
+            Line : {{line.id}} x : {{line.lat}} y : {{line.lng}}
           </div>
         </div>
       </div>
