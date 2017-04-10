@@ -22,7 +22,9 @@ before_install:
 - sudo dpkg -i google-chrome*.deb
 before_script:
 - npm install @angular/cli
+- npm install -g typescript@2.0.0
 - npm install -g karma
+- npm install angular2-google-maps --save
 - npm install
 script:
 - ng build -prod

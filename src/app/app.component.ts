@@ -4,7 +4,6 @@ import {FormControl} from "@angular/forms";
 import {Line} from "./line";
 import "rxjs/add/operator/debounceTime";
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,8 +12,6 @@ import "rxjs/add/operator/debounceTime";
 })
 export class AppComponent {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
   lineNumber = new FormControl();
   line: Line = new Line({id: 0, lat: 51.678418, lng: 7.809007});
 
