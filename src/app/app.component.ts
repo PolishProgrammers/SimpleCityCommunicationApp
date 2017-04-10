@@ -12,6 +12,7 @@ import "rxjs/add/operator/debounceTime";
 })
 export class AppComponent {
 
+  zoom = 15;
   lineNumber = new FormControl();
   line: Line = new Line({id: 0, lat: 51.678418, lng: 7.809007});
 
