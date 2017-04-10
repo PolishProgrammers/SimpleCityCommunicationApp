@@ -13,18 +13,24 @@ import "rxjs/add/operator/debounceTime";
 })
 export class AppComponent {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
   lineNumber = new FormControl();
   line: Line = new Line({id: 0, lat: 51.678418, lng: 7.809007});
 
   constructor(private lineService: LineService) {
-    this.createFormLine();
+    if (this.lineNumber.value !== '') {
+      this.createFormLine();
+    }
   }
 
   createFormLine() {
     this.lineNumber.valueChanges.debounceTime(400).subscribe(
-      lineNumber => this.line = this.lineService.getLineById(lineNumber));
+      lineNumber => {
+        if (lineNumber !== '') {
+          this.line = this.lineService.getLineById(lineNumber);
+        }
+      }
+    )
+    ;
   }
 
 }
