@@ -6,7 +6,7 @@
         <div class="col col-md-8">
           <div class="form-group">
             <label for="lineName">Podaj nazwę linii</label>
-            <input type="text" [formControl]="term" class="form-control" id="lineName" placeholder="Nazwa linii">
+            <input type="text" [formControl]="lineNumber" class="form-control" id="lineName" placeholder="Nazwa linii">
             Line : {{line.id}} x : {{line.lat}} y : {{line.lng}}
           </div>
         </div>
@@ -17,7 +17,9 @@
   <div class="row">
     <div class="col">
       <div class="jumbotron">
-        <div id="map"></div>
+        <sebm-google-map [latitude]="line.lat" [longitude]="line.lng">
+          <sebm-google-map-marker [latitude]="line.lat" [longitude]="line.lng"></sebm-google-map-marker>
+        </sebm-google-map>
       </div>
     </div>
   </div>

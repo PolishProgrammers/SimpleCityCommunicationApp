@@ -11,8 +11,8 @@ export class LineService {
   ]
   constructor() {}
 
-  getLineById(term: number): Line {
-    return this.lines.filter(line => line.id === term).pop();
+  getLineById(lineNumber: number): Line {
+    return this.lines.filter(line => line.id === lineNumber).pop();
   }
 
 }
