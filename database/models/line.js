@@ -2,18 +2,13 @@
  * Created by konra on 12.04.2017.
  */
 const mongoose = require('mongoose');
-//define connection
-mongoose.connect('mongodb://localhost/communicationdb');
-//define promise when queried
-mongoose.Promise = Promise;
+const Station = require('./station.js');
 const Schema = mongoose.Schema;
 
 //create schema
 const lineSchema = new Schema({
   lineNumber: Number,
-  lat: Number,
-  lng: Number
-
+  stations : [Station]
 });
 
 // the schema is useless so far
